@@ -9,7 +9,7 @@ services:
     - "8080:8080"
   command: gunicorn -w 1 -b :8080 core:app
   volumes:
-    - .:/opt/projetos/dev/api
+    - .:/opt/code/api
   links:
     - db
  db:
@@ -18,5 +18,5 @@ services:
   ports:
     - "27017:27017"
   volumes:
-    - .:/opt/projetos/dev/api/data 
+    - .:/opt/code/api/data 
  

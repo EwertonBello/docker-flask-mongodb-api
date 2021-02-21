@@ -43,7 +43,7 @@ class User(Resource):
         abort_if_user_doesnt_exist(username)
         users.delete_one({"username": username})
 
-        return "User deleted successfully!", 204
+        return "", 204
 
     def put(self, username):
         abort_if_user_doesnt_exist(username)
