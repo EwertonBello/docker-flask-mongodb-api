@@ -4,9 +4,8 @@ FROM mongo:latest
 FROM python:3.8
 
 #create folder
-RUN mkdir -p /opt/projetos
-RUN mkdir -p /opt/projetos/dev
-RUN mkdir -p /opt/projetos/dev/api
+RUN mkdir -p /opt/code
+RUN mkdir -p /opt/code/api
 
 #Install dependencies
 RUN apt-get update
@@ -20,8 +19,8 @@ RUN pip3 install gunicorn
 RUN pip3 install -U flask-cors
 
 #Install dependencies
-COPY requirements.txt /opt/projetos/dev/api
-WORKDIR /opt/projetos/dev/api
+COPY requirements.txt /opt/code/api
+WORKDIR /opt/code/api
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Expose the default port
