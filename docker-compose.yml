@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+ backend:
+  container_name: PYTHON-API-BACKEND
+  build: .
+  command: python3 -u core.py
+  ports:
+    - "8080:8080"
+  command: gunicorn -w 1 -b :8080 core:app
+  volumes:
+    - .:/opt/projetos/dev/api
+  links:
+    - db
+ db:
+  image: mongo:latest
+  container_name: MONGO-API-BACKEND
+  ports:
+    - "27017:27017"
+  volumes:
+    - .:/opt/projetos/dev/api/data 
+ 
