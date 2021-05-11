@@ -4,7 +4,6 @@ services:
  backend:
   container_name: PYTHON-API-BACKEND
   build: .
-  command: python3 -u core.py
   ports:
     - "8080:8080"
   command: gunicorn -w 1 -b :8080 core:app
